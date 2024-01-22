@@ -16,6 +16,9 @@ export const HeadingWrapper = styled.div`
     justify-content: space-between;
     border-bottom: 1px solid black;
     padding-bottom: 20px;
+    &>img{
+        cursor: pointer;
+    }
 `;
 export const BodyTextWrapper = styled.div`
     padding-top: 20px;

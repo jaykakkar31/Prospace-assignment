@@ -9,7 +9,7 @@ const CreateCompanyForm = () => {
     const [form] = Form.useForm();
     const ctx = useOfficeData();
     const ctxCompany = useCompanyData();
-    const [initialValues, setInitialValues] = useState({});
+    let initialValues={}
 
     const onFinish = (values) => {
         values.start_date = moment(values.start_date["$d"]).format(

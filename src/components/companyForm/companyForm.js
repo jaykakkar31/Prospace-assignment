@@ -5,10 +5,10 @@ import { useCompanyData } from "../../context/companyContext";
 import { useOfficeData } from "../../context/officeContext";
 import { countryCodes } from "../../utils/countrycodeList";
 import { PhoneNumberUtil } from "google-libphonenumber";
-
+import { numberValidator } from "../../utils/numberValidator";
 const phoneUtil = PhoneNumberUtil.getInstance();
 const CreateCompanyForm = () => {
-    const [initialValues, setInitialValues] = useState({});
+    let initialValues={}
 
     const [form] = Form.useForm();
     const ctx = useCompanyData();
@@ -27,21 +27,14 @@ const CreateCompanyForm = () => {
         openNotificationWithIcon("success");
         form.resetFields();
     };
-    const numberValidator = (_, value) => {
-        if (parseFloat(value) < 0)
-            return Promise.reject("Please enter a valid revenue");
-        const isNumber = !isNaN(parseFloat(value)) && isFinite(value);
-        if (!isNumber) {
-            return Promise.reject("Please enter a valid revenue");
-        }
-        return Promise.resolve();
-    };
+
     const isPhoneValid = (_, value) => {
-        if (value === "" || value === undefined || value.length > 15)
-            return Promise.reject("Please enter a valid phone no");
-        else {
-            let phoneNumber = form.getFieldValue("code") + value;
-            try {
+        try {
+            if (value === "" || value === undefined || value.length > 15)
+                return Promise.reject("Please enter a valid phone no");
+            else {
+                let phoneNumber = form.getFieldValue("code") + value;
+
                 if (
                     phoneUtil.isValidNumber(
                         phoneUtil.parseAndKeepRawInput(phoneNumber)
@@ -51,9 +44,9 @@ const CreateCompanyForm = () => {
                 } else {
                     return Promise.reject("Please enter a valid phone no");
                 }
-            } catch (error) {
-                return Promise.reject("Please enter a valid phone no");
             }
+        } catch (error) {
+            return Promise.reject("Please enter a valid phone no");
         }
     };
 
