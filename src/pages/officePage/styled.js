@@ -9,6 +9,12 @@ export const BoldText = styled.div`
         props.marginBottom ? props.marginBottom : "30px"};
     margin-top: ${(props) => (props.marginTop ? props.marginTop : "30px")};
     font-size: ${(props) => (props.fontSize ? props.fontSize : "26px")};
+    word-wrap: break-word;
+     @media (max-width:425px) {
+        width: 250px;
+        /* margin-left: 24px; */
+
+    }
 `;
 export const CompanyDetailsWrapper = styled.div`
     padding: 50px;
@@ -17,7 +23,10 @@ export const CompanyDetailsWrapper = styled.div`
     }
     @media (max-width:425px) {
         padding: 24px;
+        width: 250px;
+        word-wrap:break-word;
     }
+
 `;
 export const Row = styled.div`
     display: flex;
@@ -41,7 +50,7 @@ export const Row = styled.div`
         flex-direction: column;
         &>button{
             margin-top: 20px;
-            width: 300px;
+            width: 280px;
         }
     }
 `;

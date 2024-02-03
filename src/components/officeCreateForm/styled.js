@@ -78,6 +78,21 @@ export const FormItemWrapper = styled.div`
     @media (max-width: 425px) {
         width: 300px;
         padding: 0px;
+        & > div {
+
+            & > div {
+                & > div {
+                    & > div {
+                        & > div {
+                            width: 300px !important;
+                            & > div {
+                                width: 300px !important;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 `;
 export const BtnWrapper = styled.div`
@@ -119,10 +134,13 @@ export const Label = styled.label`
     & > span {
         color: #ff5b5d;
     }
+    @media (max-width: 425px) {
+        padding: 0px;
+    }
 `;
-export const FormWrapper=styled.div`
+export const FormWrapper = styled.div`
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-`
+`;

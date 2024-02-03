@@ -11,6 +11,13 @@ export const WidgetWrapper = styled.div`
     @media (max-width: 768px) {
         width: 300px;
     }
+
+    @media (max-width: 425px) {
+        width: 280px;
+    }
+    @media (max-width: 325px) {
+        width: 240px;
+    }
 `;
 export const BoldText = styled.div`
     font-weight: 700;
