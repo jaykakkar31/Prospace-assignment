@@ -5,7 +5,8 @@ export const TopContainer = styled.div`
     justify-content: space-around;
     padding: 50px;
     /* width: fit-content; */
-    @media (max-width: 768px) {
+
+    @media (max-width:850px) {
         flex-direction: column;
     }
     @media (max-width: 425px) {
@@ -24,7 +25,7 @@ export const Wrapper = styled.div`
         font-weight: 700;
         margin: 0;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 850px) {
 
         padding: 24px;
         /* justify-content: center; */

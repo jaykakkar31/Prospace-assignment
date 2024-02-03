@@ -64,7 +64,7 @@ export const Wrapper = styled.div`
         font-size: 18px;
         font-weight: 700;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 850px) {
 
         padding: 24px;
         /* justify-content: center; */
