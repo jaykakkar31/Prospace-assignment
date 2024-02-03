@@ -5,6 +5,12 @@ export const WidgetWrapper = styled.div`
     padding: 20px;
     width: 380px;
     border-radius: 8px;
+    @media (max-width: 1024px) {
+        width: 245px;
+    }
+    @media (max-width: 768px) {
+        width: 300px;
+    }
 `;
 export const BoldText = styled.div`
     font-weight: 700;
@@ -16,7 +22,7 @@ export const HeadingWrapper = styled.div`
     justify-content: space-between;
     border-bottom: 1px solid black;
     padding-bottom: 20px;
-    &>img{
+    & > img {
         cursor: pointer;
     }
 `;

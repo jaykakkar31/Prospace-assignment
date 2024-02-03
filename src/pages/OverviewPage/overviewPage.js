@@ -18,6 +18,7 @@ const OverviewPage = () => {
             companies: selectedCopy,
         });
         setCompaniesList(selectedCopy);
+        localStorage.setItem('companies',JSON.stringify(selectedCopy))
         setIsModalOpen(false);
     };
     const handleCancel = () => {
@@ -28,6 +29,14 @@ const OverviewPage = () => {
             setCompaniesList(ctx.companies.companies);
         }
     }, [ctx.companies]);
+
+    useEffect(() => {
+        if (localStorage.getItem("companies")) {
+            ctx.setCompanies({
+                companies: JSON.parse(localStorage.getItem("companies")),
+            });
+        }
+    }, []);
     return (
         <div>
             <Styled.ModalWrapper>

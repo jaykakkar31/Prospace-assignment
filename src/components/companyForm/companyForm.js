@@ -8,7 +8,7 @@ import { PhoneNumberUtil } from "google-libphonenumber";
 import { numberValidator } from "../../utils/numberValidator";
 const phoneUtil = PhoneNumberUtil.getInstance();
 const CreateCompanyForm = () => {
-    let initialValues={}
+    let initialValues = {};
 
     const [form] = Form.useForm();
     const ctx = useCompanyData();
@@ -20,12 +20,18 @@ const CreateCompanyForm = () => {
             ...ctx.companies,
             companies: [...ctx?.companies?.companies, values],
         });
+        let val = [...ctx?.companies?.companies, values];
         ctxOffice.setOffices({
             ...ctxOffice.offices,
             [values.name.toUpperCase()]: [],
         });
+        let obj={...ctxOffice.offices,[values.name.toUpperCase()]: []}
+        localStorage.setItem("companies", JSON.stringify(val));
+        localStorage.setItem('offices',JSON.stringify(obj))
         openNotificationWithIcon("success");
+
         form.resetFields();
+        form.setFieldValue("code", "+91");
     };
 
     const isPhoneValid = (_, value) => {
@@ -34,7 +40,7 @@ const CreateCompanyForm = () => {
                 return Promise.reject("Please enter a valid phone no");
             else {
                 let phoneNumber = form.getFieldValue("code") + value;
-
+                console.log("CALLED");
                 if (
                     phoneUtil.isValidNumber(
                         phoneUtil.parseAndKeepRawInput(phoneNumber)
@@ -60,9 +66,10 @@ const CreateCompanyForm = () => {
         if (form) form.setFieldValue("code", "+91");
     }, []);
     return (
-        <div>
+        <Styled.FormWrapper>
             <Styled.PageHeading>Create Company</Styled.PageHeading>
             <Form
+
                 name="myForm"
                 onFinish={onFinish}
                 initialValues={initialValues}
@@ -186,7 +193,7 @@ const CreateCompanyForm = () => {
                         />
                     </Form.Item>
                 </Styled.Row>
-                <Form.Item>
+                <Form.Item style={{width:"fit-content"}}>
                     <Styled.BtnWrapper>
                         <Button type="primary" htmlType="submit">
                             CREATE
@@ -194,7 +201,7 @@ const CreateCompanyForm = () => {
                     </Styled.BtnWrapper>
                 </Form.Item>
             </Form>
-        </div>
+        </Styled.FormWrapper>
     );
 };
 

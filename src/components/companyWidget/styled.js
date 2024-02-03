@@ -5,6 +5,12 @@ export const WidgetWrapper = styled.div`
     padding: 20px;
     width: 380px;
     border-radius: 8px;
+    @media (max-width:1024px) {
+        width: 245px;
+    }
+    @media(max-width:768px){
+        width: 300px;
+    }
 `;
 export const BoldText = styled.div`
     font-weight: 700;

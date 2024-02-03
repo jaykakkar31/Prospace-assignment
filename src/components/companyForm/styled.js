@@ -18,6 +18,7 @@ export const FormItemWrapper = styled.div`
     display: flex;
     align-items: center;
     margin-bottom: 20px;
+
     & > div {
         /* display: flex; */
         /* margin-bottom: 0px; */
@@ -41,6 +42,10 @@ export const FormItemWrapper = styled.div`
     &:first-child {
         margin-top: 20px;
     }
+    @media (max-width: 425px) {
+        width: 300px;
+        padding: 0px;
+    }
 `;
 export const BtnWrapper = styled.div`
     padding: 0 30px;
@@ -49,6 +54,13 @@ export const BtnWrapper = styled.div`
         height: 40px;
         font-weight: 600;
         font-size: 18px;
+        @media (max-width: 425px) {
+            width: 300px;
+        }
+    }
+    @media (max-width: 425px) {
+        padding: 0px;
+        width: 300px;
     }
 `;
 export const Row = styled.div`
@@ -63,6 +75,11 @@ export const Row = styled.div`
             margin-right: 0px;
         }
     }
+    @media (max-width: 425px) {
+        padding: 0px;
+        width: 300px;
+        justify-content: center;
+    }
 `;
 export const Label = styled.label`
     padding: 0 30px;
@@ -71,4 +88,13 @@ export const Label = styled.label`
         color: #ff5b5d;
         margin: 0px;
     }
+    @media (max-width: 425px) {
+        padding: 0px;
+    }
 `;
+export const FormWrapper=styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+`

@@ -4,6 +4,14 @@ export const TopContainer = styled.div`
     display: flex;
     justify-content: space-around;
     padding: 50px;
+    /* width: fit-content; */
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+    @media (max-width: 425px) {
+        padding :25px ;
+        justify-content: center;
+    }
 `;
 export const Wrapper = styled.div`
     display: grid;
@@ -15,6 +23,16 @@ export const Wrapper = styled.div`
         font-size: 18px;
         font-weight: 700;
         margin: 0;
+    }
+    @media (max-width: 768px) {
+
+        padding: 24px;
+        /* justify-content: center; */
+        grid-template-columns: auto auto;
+    }
+    @media(max-width:425px){
+        display: flex;
+        justify-content: center;
     }
 `;
 export const BoldText = styled.div`

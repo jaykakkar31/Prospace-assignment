@@ -22,6 +22,14 @@ const CreateCompanyForm = () => {
                 values,
             ],
         });
+        let obj={
+            ...ctx.offices,
+            [values?.company_name?.toUpperCase()]: [
+                ...ctx?.offices[values.company_name.toUpperCase()],
+                values
+            ],
+        }
+        localStorage.setItem('offices',JSON.stringify(obj))
 
         openNotificationWithIcon("success");
         form.resetFields();
@@ -33,7 +41,7 @@ const CreateCompanyForm = () => {
         });
     };
     return (
-        <div>
+        <Styled.FormWrapper>
             <Styled.PageHeading>Create Office</Styled.PageHeading>
             <Form
                 onFinish={onFinish}
@@ -161,7 +169,7 @@ const CreateCompanyForm = () => {
                     </Styled.BtnWrapper>
                 </Form.Item>
             </Form>
-        </div>
+        </Styled.FormWrapper>
     );
 };
 

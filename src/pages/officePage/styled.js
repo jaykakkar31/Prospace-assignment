@@ -15,6 +15,9 @@ export const CompanyDetailsWrapper = styled.div`
     & > p {
         margin: 5px 0 15px 0;
     }
+    @media (max-width:425px) {
+        padding: 24px;
+    }
 `;
 export const Row = styled.div`
     display: flex;
@@ -33,6 +36,14 @@ export const Row = styled.div`
         cursor: pointer;
         border-radius: 8px;
     }
+
+    @media(max-width:425px){
+        flex-direction: column;
+        &>button{
+            margin-top: 20px;
+            width: 300px;
+        }
+    }
 `;
 export const Wrapper = styled.div`
     display: grid;
@@ -43,6 +54,16 @@ export const Wrapper = styled.div`
     & > p {
         font-size: 18px;
         font-weight: 700;
+    }
+    @media (max-width: 768px) {
+
+        padding: 24px;
+        /* justify-content: center; */
+        grid-template-columns: auto auto;
+    }
+    @media(max-width:425px){
+        display: flex;
+        justify-content: center;
     }
 `;
 export const ModalWrapper = styled.div`

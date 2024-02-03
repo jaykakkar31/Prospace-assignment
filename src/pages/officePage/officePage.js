@@ -46,6 +46,13 @@ const OverviewPage = () => {
             setOfficeList(ctxOffice.offices[data?.name?.toUpperCase()]);
         }
     }, [ctxOffice.offices, data?.name]);
+    useEffect(() => {
+        console.log("=================>",JSON.parse(localStorage.getItem("offices")));
+        if (localStorage.getItem("offices")) {
+            ctxOffice.setOffices(JSON.parse(localStorage.getItem("offices")));
+        }
+    }, []);
+
 
     return (
         <div>
